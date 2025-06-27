@@ -1,6 +1,6 @@
 # Text-to-SQL Project
 
-This is Varsha Dasoroju's customized repository for exploring and extending the **Text-to-SQL** task using deep learning models. It is based on the original work from the DSSI competition and has been modified for personal research and development.
+This is the repository for exploring and extending the **Text-to-SQL** task using deep learning models.
 
 ## Project Goals
 
@@ -21,12 +21,6 @@ This is Varsha Dasoroju's customized repository for exploring and extending the 
     ```
 
 3. Explore the `model`, `data`, and `notebooks` folders for structure and workflow.
-
-## Acknowledgement
-
-Based on: [kenken64/text-to-sql-dssi](https://github.com/kenken64/text-to-sql-dssi)
-
----
 
 **Maintainer:** Varsha Dasoroju  
 **Repo:** https://github.com/varshadasoroju/text-to-sql-project
