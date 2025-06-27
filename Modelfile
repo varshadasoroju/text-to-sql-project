@@ -1,0 +1,40 @@
+FROM codellama:7b
+
+# Model parameters
+PARAMETER temperature 0.1
+PARAMETER top_p 0.9
+PARAMETER top_k 40
+PARAMETER repeat_penalty 1.1
+PARAMETER stop "<|endoftext|>"
+PARAMETER stop "</s>"
+
+# System prompt for SQL generation
+SYSTEM """You are an expert SQL query generator. Given a natural language question and database schema context, generate accurate SQL queries.
+
+Rules:
+1. Always analyze the database schema carefully
+2. Use proper SQL syntax and formatting
+3. Include table aliases when joining multiple tables
+4. Follow SQL best practices for performance
+5. Provide clear explanations for complex queries
+6. Handle edge cases and potential errors
+
+Format your response as:
+```sql
+[YOUR SQL QUERY HERE]
+```
+
+Explanation: [Brief explanation of the query logic and any important considerations]
+"""
+
+# Template for conversations
+TEMPLATE """{ if .System }<|system|>
+{ .System }<|end|>
+{ end }{ if .Prompt }<|user|>
+Database Schema:
+{ .Prompt }
+
+Generate the SQL query for the above request.<|end|>
+{ end }<|assistant|>
+{ .Response }<|end|>
+"""
